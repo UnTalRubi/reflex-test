@@ -1,11 +1,20 @@
 import reflex as rx
 
+from chatapp import style
+
 
 def qa(question: str, answer:str) -> rx.Component:
     return rx.box(
-        rx.box(question, text_align="right"),
-        rx.box(answer, text_align="left"),
+        rx.box(
+            rx.text(question, style=style.question_style),
+            text_align="right",
+        ),
+        rx.box(
+            rx.text(answer, style=style.answer_style),
+            text_align="left",
+        ),
         margin_y="1em",
+        width="100%",
     )
 
 
@@ -30,8 +39,11 @@ def chat() -> rx.Component:
 
 def action_bar() -> rx.Component:
     return rx.hstack(
-        rx.input(placeholder="Ask a question"),
-        rx.button("Ask"),
+        rx.input(
+            placeholder="Ask a question",
+            style=style.input_style,
+            ),
+        rx.button("Ask", style=style.button_style),
     )
 
 
@@ -39,6 +51,7 @@ def index() -> rx.Component:
     return rx.container(
         chat(),
         action_bar(),
+        align="center",
         )
 
 

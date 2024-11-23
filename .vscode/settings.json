@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "REFLEX",
-        "CHATAPP"
+        "CHATAPP",
+        "STYLE"
     ]
 }
