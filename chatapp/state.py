@@ -11,3 +11,4 @@ class State(rx.State):
     def answer(self):
         answer = "I don't know!"
         self.chat_history.append((self.question, answer))
+        self.question=""
