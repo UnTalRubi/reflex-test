@@ -1,6 +1,9 @@
 import os
 import reflex as rx
 from openai import AsyncOpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class State(rx.State):
 
@@ -11,7 +14,7 @@ class State(rx.State):
     @rx.event
     async def answer(self):
         client = AsyncOpenAI(
-            api_key=os.environ["OPENAI_API_KEY"]
+            api_key=os.getenv("OPENAI_API_KEY")
         )
 
         session = await client.chat.completions.create(
@@ -25,6 +28,7 @@ class State(rx.State):
     )
 
         answer = ""
+        self.chat_history.append((self.question, answer))
         self.question=""
         yield
 

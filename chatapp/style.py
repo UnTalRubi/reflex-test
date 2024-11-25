@@ -27,7 +27,7 @@ input_style = dict(
     border_width="1px",
     padding="0.5em",
     box_shadow=shadow,
-    width="350px",
+    width="100%",
 )
 button_style = dict(
     background_color=rx.color("accent", 10),
